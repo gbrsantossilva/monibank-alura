@@ -8,7 +8,7 @@ const botaoEnviarFoto = document.querySelector("[data-enviar]");
 
 let imagemURL = '';
 
-botaoIniciarCamera.addEventListener("click", async function(){
+botaoIniciarCamera.addEventListener('click', async function(){
     const iniciarVideo = await navigator.mediaDevices
     .getUserMedia({video: true, audio: false})
 
@@ -18,16 +18,16 @@ botaoIniciarCamera.addEventListener("click", async function(){
     video.srcObject = iniciarVideo;
 })
 
-botaoTirarFoto.addEventListener("click",  function() {
-    canvas.getContext('2d').drawImage(video, 0, 0, canvas.clientWidth, canvas.height)
+botaoTirarFoto.addEventListener('click',  function() {
+    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height)
 
-    imagemURL = canvas.toDataURL("imagem/jpeg");
+    imagemURL = canvas.toDataURL('image/jpeg');
 
     campoCamera.style.display = "none";
     mensagem.style.display = "block";
 })
 
-botaoEnviarFoto.addEventListener("click", () => {
+botaoEnviarFoto.addEventListener('click', () => {
     const receberDadosExistentes = localStorage.getItem("cadastro");
     const convertRetorno = JSON.parse(receberDadosExistentes);
 
